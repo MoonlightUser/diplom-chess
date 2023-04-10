@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.chess-board {
+    border: 3px solid #999;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.black {
+    background-color: #000;
+}
+
+.white {
+    background-color: #fff;
+}
+
+.row{
+    width: 400px;
+    height: 50px;
+    display: flex;
+}
+
+
+.square{
+    width: 50px;
+    height: 50px;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2b2a2a;
+}
