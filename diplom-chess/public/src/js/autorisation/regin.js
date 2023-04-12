@@ -27,23 +27,29 @@ document.getElementById('regin-form-submit').addEventListener('click', (e) => {
                 });
 
                 break;
-            case "2": // user already exists by email
+            case "2": // user already exists by username
                 console.log("user already exists");
+                drawError('regin-form-username', 'username-error', 'User already exists by username');
                 break;
             case "3": // passwords do not match with repeat-password
                 console.log("Passwords do not match");
+                drawError('regin-form-repeat-password', 'repeat-password-error', 'Passwords do not match');
                 break;
             case "4": 
                 console.log("Password is too short (min 6 symbols) or contains forbidden symbols");
+                drawError('regin-form-password', 'password-error', 'Password is too short (min 6 symbols) or contains forbidden symbols');
                 break;
             case "5":
                 console.log("Username is too short (min 3 symbols) or too long (max 20 symbols) or contains forbidden symbols");
+                drawError('regin-form-username', 'username-error', 'Username is too short (min 3 symbols) or too long (max 20 symbols) or contains forbidden symbols');
                 break;
             case "6": // email is not valid
                 console.log("Email is not valid");
+                drawError('regin-form-email', 'email-error', 'Email is not valid');
                 break;
             case "7": // email already exists
                 console.log("email already exists");
+                drawError('regin-form-email', 'email-error', 'Email already exists');
                 break;
             default:
                 console.log("unknown error");
@@ -57,3 +63,15 @@ document.getElementById('regin-form-submit').addEventListener('click', (e) => {
         //end css
     });
 });
+
+function drawError(inputId, errorId, text) {
+    document.getElementById(errorId).innerHTML = text;
+    document.getElementById(inputId).style.border = "2px solid red";
+    document.getElementById(inputId).addEventListener('focus', () => {
+        document.getElementById(errorId).innerHTML = "";
+        document.getElementById(inputId).style.border = "2px solid #b37aff";
+    });
+    document.getElementById(inputId).addEventListener('focusout', () => {
+        document.getElementById(inputId).style.border = "";
+    });
+}

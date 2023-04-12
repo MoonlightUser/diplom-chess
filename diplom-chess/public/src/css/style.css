@@ -3,6 +3,8 @@
   --font-color-secondary-light: #747bff;
   --font-color-secondary-dark: #3137a0;
   --font-color-primary: #dadada;
+  --font-color-error: #df1818;
+  --font-color-black: #010101;
 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -13,6 +15,9 @@
   --background-color: #19181F;
   --background-color-dark: #0b0b0e;
   --background-color-light: #1b1b1b;
+  --background-color-white: #fdfdfd;
+  --background-color-perple-light: #EFECFF;
+  --background-color-perple-dark: #b37aff;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);

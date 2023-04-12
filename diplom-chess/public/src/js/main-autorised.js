@@ -3,14 +3,14 @@ const CLIENT_URL = "http://127.0.0.1:5500";
 
 
 if (window.localStorage.getItem("token") == null) { // if token is not exist
-    window.location.href = CLIENT_URL + "/diplom-chess/public/index.html";
+    window.location.href = CLIENT_URL + "/diplom-chess/public/main.html";
 }
 else { // if token is exist
     readToken(window.localStorage.getItem("token"), (response) => {
         if (JSON.parse(response) === false) { // if token is expired
             window.localStorage.removeItem("token");
             window.localStorage.removeItem("user");
-            window.location.href = CLIENT_URL + "/diplom-chess/public/index.html";
+            window.location.href = CLIENT_URL + "/diplom-chess/public/main.html";
         }
         else { // if token is valid
             window.localStorage.setItem("token", JSON.parse(response));
@@ -24,7 +24,7 @@ else { // if token is exist
 document.getElementById('logout').addEventListener("click", ()=>{
     window.localStorage.removeItem("token");
     window.localStorage.removeItem("user");
-    window.location.href = CLIENT_URL + "/diplom-chess/public/index.html";
+    window.location.href = CLIENT_URL + "/diplom-chess/public/main.html";
 })
 
 document.getElementsByClassName('user-data__username')[0].innerHTML = window.localStorage.getItem("user");
