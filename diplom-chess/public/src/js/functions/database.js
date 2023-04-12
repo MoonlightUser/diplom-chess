@@ -21,3 +21,14 @@ export function addUser(username, password, repeatPassword, email, callback) {
             },
     });
 }
+
+export function findUser(username, password, callback) {
+    $.ajax({
+        type: "POST",
+        url: SERVER_URL + "/find-user",
+        data: { username, password},
+        success: function (response) {
+            callback(response);
+            },
+    });
+}

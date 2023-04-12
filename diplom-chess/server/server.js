@@ -8,6 +8,7 @@ const $ = require('jquery')(dom.window)
 
 const validate = require("validate.js");
 const { contains } = require('jquery');
+const e = require('cors');
 const constraints = {
     username: {
         length: {
@@ -186,10 +187,46 @@ app.post('/add-user', (req, res) => {
 
 })
 
+app.post('/find-user', (req, res) => {
+    console.log("Just got a request to login!")
+    $.ajax({
+        url: CLIENT_URL+GET_USERS_URL,
+        method:'post',
+        success: function (response) {
+            console.log("success in get-users");
+            const users = JSON.parse(response);
+            const username = req.body.username;
+            const password = req.body.password;
+            let isUserFouded = false;
+            for (let i = 0; i < users.length; i++) {
+                if (users[i].name === username && users[i].password === password) {
+                    console.log("user found");
+                    isUserFouded = true;
+                    res.send("1")
+                    break
+                }
+                else if (users[i].name === req.body.username && users[i].password !== req.body.password) {
+                    console.log("wrong password");
+                    isUserFouded = true;
+                    res.send("2")
+                    break
+                }
+            }
+            if (!isUserFouded) {
+                console.log("user not found");
+                res.send("3")
+            }
+        },
+        error: function (xhr, status, error) {
+            console.log("error in get-users");
+            console.log(xhr);
+            res.send(xhr)
+        }
+    });
+})
+
 app.listen(3000, () => {
     console.log('Example app listening on port 3000!')
 })
 
-function findeUserByUsername(username){
 
-}
