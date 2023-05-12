@@ -29,6 +29,33 @@
   -webkit-text-size-adjust: 100%;
 }
 
+.swal-modal{
+  background-color: var(--background-color);
+}
+.swal-title{
+  color: var(--font-color-primary);
+}
+.swal-text{
+  color: var(--font-color-primary);
+}
+.swal-button{
+  transition: 0.3s;
+  background-color: var(--button-color);
+  color: var(--font-color-primary);
+}
+.swal-button:not([disabled]):hover{
+  background-color: var(--font-color-secondary-light);
+  color: var(--font-color-primary);
+}
+
+.swal-icon--success__hide-corners,.swal-icon--success:after, .swal-icon--success:before{
+  background-color: #00000000;
+}
+
+
+.swal-button:focus{
+  box-shadow: none;
+}
 .loader {
   position: absolute;
   top: 50%;

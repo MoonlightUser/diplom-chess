@@ -1,7 +1,7 @@
 import { getUsers } from '../functions/database.js';
 import { addUser } from '../functions/database.js';
 import { createToken } from '../functions/token.js';
-const CLIENT_URL = "http://127.0.0.1:5500"; // test
+import { CLIENT_URL } from "../config.js";
 
 document.getElementById('regin-form-submit').addEventListener('click', (e) => {
     //css

@@ -1,5 +1,4 @@
-// const SERVER_URL = "https://creepy-puce-hen.cyclic.app"; // production
-const SERVER_URL = "http://localhost:3000"; // test
+import { SERVER_URL } from "../config.js";
 
 export function createToken(username, password, callback) {
     $.ajax({

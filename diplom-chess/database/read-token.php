@@ -13,7 +13,7 @@
         $payload = array(
             "username" => $decoded -> username,
             "password" => $decoded -> password,
-            "exp" => time() + 60*10  // 10 minutes
+            "exp" => time() + 60*60*10  // 10 minutes
         );
         $token = JWT::encode($payload, $key, 'HS256');
         echo  json_encode($token);

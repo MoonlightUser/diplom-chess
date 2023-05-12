@@ -1,9 +1,7 @@
 import { createToken } from '../functions/token.js';
-import { readToken } from '../functions/token.js';
-import { getUsers } from '../functions/database.js';
 import { findUser } from '../functions/database.js';
-const SERVER_URL = "http://localhost:3000"; // test
-const CLIENT_URL = "http://127.0.0.1:5500"; // test
+import { CLIENT_URL } from "../config.js";
+
 
 document.getElementById('login-form-submit').addEventListener('click', (e) => {
 
